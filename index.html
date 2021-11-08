@@ -1,135 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>jQueryValidator</title>
-        <script
-          src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          crossorigin="anonymous"
-        ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-          crossorigin="anonymous"
-        />
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-            body{
-                margin: 0;
-                font-family: 'Ubuntu', sans-serif !important;
-                background-image: url(Lambang-ITS.png);
-                background-size: cover;
-                color : rgb(41, 39, 39) !important;
-            }
-            .form-fill{
-                margin:10px !important;
-            }
-            .content{
-                margin:5%;
-                padding:20px;
-                text-align: right;
-                width: 700px;
-            }
-            input{
-                width: 400px;
-                border-radius: 10px !important;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Practice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body{
+            position: static;
+        }
+
+        body::before{
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.20;
+            background-image: url("https://www.torontopubliclibrary.ca/images/books-video-music/books/reading-challenge.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .content{
+            width: 600px;
+            margin: auto;
+            border: 5px solid lightseagreen;
+            border-radius: 25px;
+            background-color: rgba(17, 97, 152, 0.8);
+            padding: 10px;
+            margin-top: 120px;
+        }
+
+        .content form{
+            width: 500px !important;
+            margin: 5px;
+        }
+
+        label{
+            color: rgb(240, 171, 22) !important; 
+        }
+
+        h1{
+            -webkit-text-stroke:rgba(17, 97, 152, 0.8) 1px !important;
+            text-shadow: 0em 0em 1.0em lightseagreen, 0em 0em 1.0em lightseagreen, 0em 0em 0.2em lightseagreen
+        }
+
+        input{
+            width: 300px !important;
+        }
+
+        select{
+            font-weight: bold;
+            width: 100px;
+        }
+
+        #btnAdd{
+            width: 180px;
+            background: rgb(240, 171, 22);
+            font-weight: 500;
+            border-color: lightseagreen;
+        }
+
+    </style>
+</head>
 <body>
-    <div class="content">
-        <form id="identity">
-        <div class="form-fill">
-            <label for="nim" class="label-form">NIM </label>
-            <input type="text" name="nim" id="nim" maxlength="14"/>    
+    <div class="container">
+        <h1 class="text-center pt-5">Tambahkan Jenis Buku Baru!</h1>
+        <div class="content">
+            <form autocomplete="off">
+                <div class="form-group mt-3 custom">
+                    <label class="font-weight-bold mt-1">New Book Name :</label>
+                    <input type="text" name="newBook" id="newBook" class="form-control">
+                </div>
+                <div class="form-group mt-3 custom">
+                    <label class="font-weight-bold mt-1">Book List :</label>
+                    <select name="bookList" id="bookList">
+                        <option value="">Select</option>
+                    </select>
+                    <br>
+                </div>
+                <p align="right"> 
+                    <button type="button" id="btnAdd" class="btn btn-primary mt-3">Submit</button>
+                </p>
+            </form>
         </div>
-        <div class="form-fill">
-            <label for="nama" class="label-form">Nama Lengkap </label>
-            <input type="text" name="nama" id="nama">    
-        </div>
-        <div class="form-fill">
-            <label for="alamat" class="label-form">Alamat Domisili </label>
-            <input name="alamat" id="alamat"/>
-        </div>
-        <div class="form-fill">
-            <label for="tgl" class="label-form">Tanggal Lahir </label>
-            <input type="text" name="tgl" id="tgl" maxlength="10"/>    
-        </div>
-        <div class="form-fill">
-            <label for="umur" class="label-form">Umur </label>
-            <input type="text" name="umur" id="umur" maxlength="3"/>
-        </div>
-        <div class="form-fill">
-            <label for="email" class="label-form">Email </label>
-            <input type="text" name="email" id="email"/>
-        </div>
-        <div class="form-fill">
-            <label for="situs" class="label-form">Situs Pribadi </label>
-            <input type="text" name="situs" id="situs"/>
-        </div>
-        <div class="form-fill">
-            <label for="pass1" class="label-form">Password </label>
-            <input type="password" name="pass1" id="pass1"/>
-        </div>
-        <div class="form-fill">
-            <label for="pass2" class="label-form">Ulangi Password </label>
-            <input type="password" name="pass2" id="pass2"/>
-        </div>
-        <div class="form-fill">
-            <label for="submit" class="label-form">&nbsp;</label>
-            <input type="submit" name="Submit" value="Submit"/>
-        </div>
-    </form>
     </div>
-    <script>
-        $(document).ready(function(){
-            jQuery.validator.setDefaults({
-                debug: true,
-                success: "valid"
-              });
-              $( "#identity" ).validate({
-                rules: {
-                  nim: {
-                    required: true,
-                    digits: true
-                  },
-                  nama:{
-                    required: true
-                  },
-                  alamat:{
-                    required: true,  
-                  },
-                  tanggal:{
-                    required: true,
-                    date: true, //deprecated
-                    dateFormat: 'yy-mm-dd'
-                  }, 
-                  umur:{
-                    required: true,
-                    number:true
-                  },
-                  email:{
-                    required: true,
-                    email: true
-                  },
-                  situs:{
-                    required: false,
-                    url: true
-                  },
-                  pass1:{
-                    required: true,
-                  },
-                  pass2:{
-                    required: true,
-                  }
-                }
-              });
-        });
-    </script>
 </body>
 </html>
+
+<script>
+    $(`#btnAdd`).click(function() {
+        var newBook = $(`#newBook`).val();
+        if(newBook == ''){
+            return;
+        }
+        else if ($('#bookList option:contains('+ newBook +')').length) {
+            return;
+        }
+        else{
+            $(`#bookList`).append(new Option(newBook, newBook)); 
+        }
+    });
+</script>
